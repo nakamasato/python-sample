@@ -17,5 +17,4 @@ jobs:
       - name: test
         timeout-minutes: 1
         run: |
-          pip install -r requirements.txt
-          make test
+          make init test
