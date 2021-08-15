@@ -1,6 +1,10 @@
 # Python Sample
 
-## Directory
+Sample Python app with tests.
+
+## Tests and Directory
+
+There are two main approaches about where to put test codes:
 
 1. Tests outside application code
 

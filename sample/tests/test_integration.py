@@ -18,7 +18,7 @@ def http_service(docker_ip, docker_services):
     """Ensure that HTTP service is up and responsive."""
 
     # `port_for` takes a container port and returns the corresponding host port
-    port = docker_services.port_for("httpbin", 80)
+    port = docker_services.port_for("nginx", 80)
     url = "http://{}:{}".format(docker_ip, port)
     docker_services.wait_until_responsive(
         timeout=30.0, pause=0.1, check=lambda: is_responsive(url)
@@ -27,7 +27,7 @@ def http_service(docker_ip, docker_services):
 
 
 def test_status_code(http_service):
-    status = 418
-    response = requests.get(http_service + "/status/{}".format(status))
+    status = 200
+    response = requests.get(http_service)
 
     assert response.status_code == status
