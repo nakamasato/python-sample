@@ -31,7 +31,7 @@ There are two main approaches about where to put test codes:
     Benefits:
     - Your tests can run against an installed version after executing pip install .
     - Your tests can run against the local copy with an editable install after executing pip install --editable ..
-    - If you don’t have a setup.py file and are relying on the fact that Python by default puts the current directory in sys.path to import your package, you can execute python -m pytest to execute the tests against the local copy directly, without using pip.
+    - If you don’t have a setup.py file and are relying on the fact that Python by default puts the current directory in sys.path to import your package, you can execute `python -m pytest` to execute the tests against the local copy directly, without using pip.
 
     Drawbacks:
     - if you are using prepend import mode (which is the default)
@@ -52,6 +52,10 @@ There are two main approaches about where to put test codes:
             ...
     ```
 
+    You can easily run your tests with `--pyargs`: `pytest --pyargs mypkg`. `pytest` will discover where `mypkg` is installed and collect tests from there.
+
+    - [Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/) example uses this structure.
+
 ## Local env
 
 https://docs.python.org/3/library/venv.html
@@ -71,5 +75,7 @@ make test
 ## Reference
 
 - Integration test with Docker: https://pypi.org/project/pytest-docker/
-- Good practice: https://docs.pytest.org/en/stable/goodpractices.html#tox
+- [Pytest Good practices](https://docs.pytest.org/en/stable/goodpractices.html)
 - pytest with tox: https://tox.readthedocs.io/en/latest/example/pytest.html
+- [Structuring Your Project](https://docs.python-guide.org/writing/structure/)
+- [Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/)
